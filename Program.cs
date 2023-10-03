@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using TestTask.Data;
+using TestTask.Services.Interfaces;
+using TestTask.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
